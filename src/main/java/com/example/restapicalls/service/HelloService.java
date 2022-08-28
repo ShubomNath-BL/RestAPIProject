@@ -25,4 +25,9 @@ public class HelloService {
         String response = "Hello "+name;
         return response;
     }
+
+    public String requestParamData(String name) {
+        String response = "Hello "+name;
+        return response;
+    }
 }

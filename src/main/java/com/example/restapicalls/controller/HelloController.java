@@ -27,6 +27,11 @@ public class HelloController {
         String response = service.requestMappingData(name);
         return response;
     }
+    @GetMapping("/param/{name}")
+    public String helloParam(@PathVariable String name){
+        String response = service.requestParamData(name);
+        return response;
+    }
 
 //    @PostMapping("/post")
 //    public String postNewData(@RequestBody HelloModel model){
