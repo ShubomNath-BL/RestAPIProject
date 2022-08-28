@@ -33,9 +33,9 @@ public class HelloController {
         return response;
     }
 
-//    @PostMapping("/post")
-//    public String postNewData(@RequestBody HelloModel model){
-//        String response = service.postData(model);
-//        return response;
-//    }
+    @PostMapping("/post")
+    public String postNewData(@RequestBody HelloModel model){
+        String response = service.postData(model);
+        return response;
+    }
 }
