@@ -38,4 +38,11 @@ public class HelloController {
         String response = service.postData(model);
         return response;
     }
+
+    @PutMapping("/put/{firstName}")
+    public String putNewData(@PathVariable String firstName,
+                             @RequestParam(value = "lastName") String lastName,
+                             @RequestParam(value = "id") int id){
+        return "Hello "+firstName+" "+lastName+" with id number"+id;
+    }
 }
