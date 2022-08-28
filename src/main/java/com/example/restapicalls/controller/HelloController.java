@@ -1,21 +1,36 @@
 package com.example.restapicalls.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.restapicalls.entity.HelloModel;
+import com.example.restapicalls.service.HelloService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
 public class HelloController {
 
+    @Autowired
+    HelloService service;
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
     public String getData(){
-        return "Hello & welcome to spring boot";
+        String response = service.returnData();
+        return response;
     }
 
     @GetMapping("/get")
     public String getNewData(){
-        return "Hello to spring boot";
+        String result = service.recieveData();
+        return result;
     }
+    @RequestMapping(value = {"/query"}, method = RequestMethod.GET)
+    public String hello(@RequestParam(value = "name") String name){
+        String response = service.requestMappingData(name);
+        return response;
+    }
+
+//    @PostMapping("/post")
+//    public String postNewData(@RequestBody HelloModel model){
+//        String response = service.postData(model);
+//        return response;
+//    }
 }
